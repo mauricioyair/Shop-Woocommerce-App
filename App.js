@@ -1,18 +1,18 @@
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
 
 import GlobalState from "./src/context/GlobalState";
-import ProductsScreen from "./src/components/products/ProductsScreen";
+import ProductsStack from "./src/stacks/ProductsStack";
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <GlobalState>
-        <View>
-          <ProductsScreen />          
-        </View>
-      </GlobalState>
+      <NavigationContainer>
+        <GlobalState>
+          <ProductsStack />
+        </GlobalState>
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }
