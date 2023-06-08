@@ -5,12 +5,14 @@ import { StyleSheet, Dimensions, Platform, Text, FlatList } from "react-native";
 import Context from "../../context/Context";
 import { sizes } from "../../resources/constants"
 import ProductsItem from "./ProductsItem";
+import Header from "../../components/Header/Header"
 
 const ProductsScreen = props => {
   const {products} = useContext(Context);
 
   return(
     <SafeAreaView>
+      <Header {...props} />
       <FlatList  
         style={styles.container}
         data={products}
