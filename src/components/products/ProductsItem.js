@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Dimensions, Text, View, Image } from "react-native";
+import { StyleSheet, Dimensions, Text, View, Image, Pressable } from "react-native";
 
 import { colors } from "../../resources/constants";
 import config from "../../resources/config";
@@ -7,17 +7,19 @@ import config from "../../resources/config";
 
 
 const ProductsItem = props => {
-  const {item} = props;
+  const {item, navigation} = props;
   const { id, name, price, images } = item;
 
   return(
     <View key={id} style={styles.itemContainer}>
-      <Image resizeMode="cover" style={styles.itemImage} source={{
-        uri: images[0].src,
-        headers: {
-          Authorization: config.liveLinkCredentials,
-        }
-      }}/>
+      <Pressable onPress={() => navigation.navigate('Products Details', {product: item})}>
+        <Image resizeMode="cover" style={styles.itemImage} source={{
+          uri: images[0].src,
+          headers: {
+            Authorization: config.liveLinkCredentials,
+          }
+        }}/>
+      </Pressable>
       <View style={styles.itemData}>
         <View style={styles.itemMeta}>
           <Text style={styles.itemPrice}>{`$ ${price}`}</Text>
