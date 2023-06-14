@@ -1,6 +1,6 @@
 import react, { useContext } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Platform, Dimensions, StyleSheet, View, Text, FlatList } from "react-native";
+import { Platform, Dimensions, StyleSheet, View, Text, FlatList, Pressable } from "react-native";
 
 import Header from "../Header/Header";
 import ProductInCart from "./ProductInCart";
@@ -22,6 +22,10 @@ const CartScreen = props => {
         <Text style={styles.resumeText}>Total</Text>
         <Text style={styles.resumePrice}>$ {cartPrice}</Text>
       </View>
+
+      <Pressable disabled={!(cart.length > 0)} style={styles.buttonCheckout} onPress={() => props.navigation.navigate('Checkout')}>
+        <Text style={styles.textCheckout}>Checkout</Text>
+      </Pressable>
     </SafeAreaView>
   )
 }
