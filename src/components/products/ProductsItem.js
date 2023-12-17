@@ -89,8 +89,11 @@ const styles = StyleSheet.create({
     width: '25%',
   },
   productBtn: {
-    width: 30,
-    height: 30,
+    width: 10,
+    height: 10,
+    backgroundColor: 'white',
+    borderRadius: 30,
+    padding: 15,
   },
 });
 
