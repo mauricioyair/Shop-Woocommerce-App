@@ -37,7 +37,7 @@ const globalState = props => {
     const newProducts = await apiFetch.get(
       `${config.siteUrl}products?${config.wcCredentials}`
     )
-    console.log(newProducts);
+    /* console.log(newProducts); */
     setProducts(newProducts);
   }
 

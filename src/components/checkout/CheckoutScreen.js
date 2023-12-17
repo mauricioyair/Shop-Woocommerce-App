@@ -22,7 +22,7 @@ const CheckoutScreen = props => {
     const pgList = await apiFetch.get(
       `${config.siteUrl}payment_gateways?${config.wcCredentials}`,
     );
-    console.log(pgList);
+    /* console.log(pgList); */
     const enabledPG = pgList.filter(pg => pg.enabled);
     setPaymentGateways(enabledPG);
   };
@@ -49,7 +49,7 @@ const CheckoutScreen = props => {
       paymentData,
     );
 
-    console.log(registerPayment);
+    /* console.log(registerPayment); */
     if (registerPayment.code && registerPayment.message) {
       setMessage(`Hubo un error: ${registerPayment.message}.`);
     } else {
